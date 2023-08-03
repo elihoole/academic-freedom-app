@@ -25,8 +25,8 @@ with open(legalstopwords_path) as f:
 
 nltk.data.path.append("./nltk_data/")
 
-nltk.download("stopwords")
-nltk.download("punkt")
+# nltk.download("stopwords")
+# nltk.download("punkt")
 # import punctuations
 
 stop_words = set(stopwords.words("english"))
