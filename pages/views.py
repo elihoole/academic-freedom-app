@@ -36,7 +36,7 @@ class HomePageView(TemplateView):
                 Q(primary_key__in=results)
             )
             # re order queryset by results
-            queryset = sorted(queryset, key=lambda x: results.index(x.primary_key))[:20]
+            queryset = sorted(queryset, key=lambda x: results.index(x.primary_key))[:30]
 
         else:
             queryset = Judgement.objects.none()

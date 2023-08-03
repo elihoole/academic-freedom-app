@@ -15,11 +15,14 @@ if os.path.exists("db.sqlite3"):
 conn = sqlite3.connect("db.sqlite3")
 
 
-df = pd.read_csv("judgements-with-matter-no-duplicates.csv")
+df = pd.read_csv("../academic_freedom/ed_cases_df.csv")
 
-df = df.drop(columns=["casenumber", "hyphenated_date", "nameofparties"])
+print(df.head(5))
 
-df = df.rename(columns={"in-the-matter-of": "in_the_matter_of"})
+
+# df = df.drop(columns=["casenumber", "hyphenated_date", "nameofparties"])
+
+# df = df.rename(columns={"in-the-matter-of": "in_the_matter_of"})
 
 print(df.keys())
 
@@ -36,19 +39,19 @@ print(df.keys())
 
 conn = sqlite3.connect("db.sqlite3")
 
-df_text = pd.read_csv("primary_key_to_judgement_text.csv")
+# df_text = pd.read_csv("primary_key_to_judgement_text.csv")
 
-df_text = df_text.drop(columns=["filename"])
+# df_text = df_text.drop(columns=["filename"])
 
-df_text = df_text.rename(columns={"text": "judgement_text"})
-
-print("df_text keys", df_text.keys())
-
-print("shape of df_text", df_text.shape, "shape of df", df.shape)
-
-df = df.merge(df_text, on="primary_key", how="inner")
-
-print("df shape after merge", df.shape)
+# df_text = df_text.rename(columns={"text": "judgement_text"})
+# 
+# print("df_text keys", df_text.keys())
+# 
+# print("shape of df_text", df_text.shape, "shape of df", df.shape)
+# 
+# df = df.merge(df_text, on="primary_key", how="inner")
+# 
+# print("df shape after merge", df.shape)
 
 df.to_sql("pages_judgement", conn, if_exists="replace", index=False)
 

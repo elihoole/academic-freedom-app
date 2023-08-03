@@ -7,9 +7,9 @@ from .views import (
 
 urlpatterns = [
     path(
-        "supreme_court_judgements/",
+        "academic_freedom_judgements/",
         JudgementListView.as_view(),
-        name="supreme_court_judgements",
+        name="academic_freedom_judgements",
     ),
     path("about/", AboutPageView.as_view(), name="about"),
     path("", HomePageView.as_view(), name="home"),
