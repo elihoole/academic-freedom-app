@@ -80,17 +80,19 @@ class JudgementListView(ListView):
         if year_ and not month_:
             queryset = (
                 self.get_queryset()
-                .annotate(year=ExtractYear("date"))
+                .annotate(year=ExtractYear("date"), month=ExtractMonth("date"))
                 .filter(year=year_)
+                .order_by("-date")
             )
         elif year_ and month_:
             queryset = (
                 self.get_queryset()
                 .annotate(year=ExtractYear("date"), month=ExtractMonth("date"))
                 .filter(year=year_, month=month_)
+                .order_by("-date")
             )
         else:
-            queryset = self.get_queryset()
+            queryset = self.get_queryset().order_by("-date")
 
         if search_link:
             queryset = self.get_queryset().filter(link__icontains=search_link)
