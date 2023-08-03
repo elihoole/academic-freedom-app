@@ -14,7 +14,11 @@ from .forms import JudgementsFilterForm, JudgementsSearchForm, JudgementsPDFForm
 from . import bm25
 import json
 
+from django.conf import settings
+
 # Create your views here.
+
+pos_inv_ind_path = settings.BASE_DIR / "pos_inv_ind.json"
 
 
 class HomePageView(TemplateView):
@@ -22,7 +26,7 @@ class HomePageView(TemplateView):
     template_name = "home.html"
     context_object_name = "search_judgements_list"
 
-    with open("pos_inv_ind.json", "r") as f:
+    with open(pos_inv_ind_path, "r") as f:
         data = json.load(f)
         dlt = bm25.createDocTable(data)
         # print("dlt", dlt)

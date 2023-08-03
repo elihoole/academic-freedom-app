@@ -1,0 +1,20 @@
+<VirtualHost *:80>
+  ServerName 18.135.204.77
+  DocumentRoot /home/ubuntu/academic-freedom-app/
+
+  Alias /static/ /home/ubuntu/academic-freedom-app/staticfiles/
+  
+  <Directory /home/ubuntu/academic-freedom-app/staticfiles/>
+    Require all granted
+  </Directory>
+  
+  WSGIDaemonProcess academic-freedom-app python-home=/home/ubuntu/academic-freedom-app/.venv/ python-path=/home/ubuntu/academic-freedom-app/
+   WSGIProcessGroup academic-freedom-app 
+  WSGIScriptAlias / /home/ubuntu/academic-freedom-app/config/wsgi.py
+  
+  <Directory /home/ubuntu/academic-freedom-app/config/>
+    <Files wsgi.py>
+      Require all granted
+    </Files>
+  </Directory>
+</VirtualHost>

@@ -12,6 +12,17 @@ import timeit
 import glob
 import nltk
 
+from django.conf import settings
+
+print("settings.BASE_DIR", settings.BASE_DIR)
+
+legalstopwords_path = settings.BASE_DIR / "legalstopwords.txt"
+
+with open(legalstopwords_path) as f:
+    legal_stop_words = f.readlines()
+    legal_stop_words = [word.strip() for word in legal_stop_words]
+
+
 nltk.data.path.append("./nltk_data/")
 
 nltk.download("stopwords")
@@ -20,20 +31,21 @@ nltk.download("punkt")
 
 stop_words = set(stopwords.words("english"))
 
-with open("legalstopwords.txt") as f:
-    legal_stop_words = f.readlines()
-    legal_stop_words = [word.strip() for word in legal_stop_words]
 
 stop_words = stop_words.union(legal_stop_words)
 
 
+"""
 supreme_court_cases_file_path = (
     "/Users/elijah.hoole/Documents/paralegal/cases_supreme_court"
 )
 
 
+
 with open("primary_key_filename_dict.json", "r") as f:
     primary_key_filename_dict = json.load(f)
+
+"""
 
 
 def clean_up_case_text(text):
