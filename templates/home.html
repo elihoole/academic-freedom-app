@@ -29,7 +29,7 @@
             <a class="judgement-link" href="{{ judgement.link }}">link</a>
         </div>
         <div class="judgement-body">
-            <span class="judgement-matter">{{ judgement|relevant_text:query }}</span>
+            <span class="judgement-matter">{{ judgement.in_the_matter_of }}</span>
         </div>
     </li>
     {% endfor %}

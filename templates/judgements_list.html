@@ -26,13 +26,14 @@
 
 
 {% if year and month %}
-<h2 class="results-for">Judgements issued by the Supreme Court of Sri Lanka in {{ month }}, {{ year }} </h2>
+<h2 class="results-for">Academic freedom related judgements in the apex courts of Sri Lanka in {{ month }}, {{ year }}
+</h2>
 {% elif year and not month %}
-<h2 class="results-for">Judgements issued by the Supreme Court of Sri Lanka in {{ year }} </h2>
+<h2 class="results-for">Academic freedom related judgements in the apex courts of Sri Lanka in {{ year }} </h2>
 {% elif search_link %}
 <h2 class="results-for">Result for {{ search_link }} </h2>
 {% else %}
-<h2 class="results-for">Judgements issued by the Supreme Court of Sri Lanka (2009-2023)</h2>
+<h2 class="results-for">Academic freedom related judgements in the apex courts of Sri Lanka (2009-2023)</h2>
 {% endif %}
 
 
