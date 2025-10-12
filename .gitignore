@@ -3,3 +3,20 @@ judgements_search.html
 search_form.html
 *.pyc
 
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+staticfiles/
+media/
+
+
