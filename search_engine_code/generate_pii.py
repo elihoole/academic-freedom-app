@@ -21,7 +21,7 @@ class Preprocess(Resource):
 	#pre-process the given text
 	def preprocessing(self, text):
 		preprocessedtokens=[]
-		stopwordsfile = open(r'C:\Users\pyath\Documents\Edinburgh\TTDS\CW1\EnglishStopWords.txt','r')
+		stopwordsfile = open(r'../legalstopwords.txt','r')
 		stopwords = stopwordsfile.read().split()
 		tokens = re.split(r"[ ,.:;!&=\n]", text)
 		for token in tokens:
